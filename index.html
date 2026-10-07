@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Syed Danish Furqhan - Software Engineer & System Architect. High-throughput distributed systems, scalable web applications, and cinematic brutalist engineering." />
+  <meta name="author" content="Syed Danish Furqhan" />
+  <title>Syed Danish Furqhan | Software Engineer &amp; System Architect</title>
+
+  <!-- Google Fonts: Pixel Art, Brutalist & Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       CSS MEDIA QUERIES: DEFAULT BROWSER THEME DETECTION & TOKENS
+       Detects user's system/browser preference (prefers-color-scheme) automatically
+       ========================================================================== */
+
+    /* Default Base Variables */
+    :root {
+      /* Shared Dimensions & Fonts */
+      --nav-width: 260px;
+      --font-pixel: 'Silkscreen', 'Press Start 2P', monospace;
+      --font-pixel-alt: 'Press Start 2P', monospace;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --transition-snap: 0.15s cubic-bezier(0, 0, 0.2, 1);
+      --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Pixel Palette Tokens */
+      --pixel-neon-green: #39ff14;
+      --pixel-neon-cyan: #00f0ff;
+      --pixel-neon-pink: #ff007f;
+      --pixel-neon-yellow: #ffe600;
+      --pixel-black: #050608;
+    }
+
+    /* System Browser Theme: DARK (Night Mode detected by CSS Media Query) */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-base: #06080d;
+        --bg-surface: #0e121a;
+        --bg-card: rgba(14, 18, 27, 0.88);
+        --bg-card-hover: rgba(22, 28, 42, 0.95);
+        --border-brutal: #2a3144;
+        --border-strong: #00f0ff;
+        
+        --text-main: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        
+        --primary: #6366f1;
+        --primary-hover: #4f46e5;
+        --accent-glow: rgba(0, 240, 255, 0.25);
+        
+        --shadow-brutal: 5px 5px 0px #000000;
+        --shadow-brutal-sm: 3px 3px 0px #000000;
+        --shadow-glow: 0 0 25px rgba(0, 240, 255, 0.2);
+        
+        --nav-bg: #0b0f17;
+        --nav-border: #1e2638;
+        --nav-item-bg: #121824;
+        --nav-item-hover: #1c2538;
+        --nav-item-active: #00f0ff;
+        --nav-item-active-text: #050608;
+        
+        --hero-overlay: rgba(6, 8, 13, 0.78);
+        --vignette-center: rgba(6, 8, 13, 0.35);
+        --vignette-edge: rgba(4, 5, 8, 0.96);
+        
+        --system-mode-tag: "BROWSER: NIGHT";
+      }
+    }
+
+    /* System Browser Theme: LIGHT (Day Mode detected by CSS Media Query) */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-base: #f1f2ec;
+        --bg-surface: #ffffff;
+        --bg-card: rgba(255, 255, 255, 0.94);
+        --bg-card-hover: rgba(245, 247, 240, 1);
+        --border-brutal: #11141a;
+        --border-strong: #0047ff;
+        
+        --text-main: #0c0e14;
+        --text-secondary: #4b5565;
+        --text-muted: #697386;
+        
+        --primary: #0047ff;
+        --primary-hover: #0037cc;
+        --accent-glow: rgba(0, 71, 255, 0.2);
+        
+        --shadow-brutal: 5px 5px 0px #11141a;
+        --shadow-brutal-sm: 3px 3px 0px #11141a;
+        --shadow-glow: 0 0 20px rgba(0, 71, 255, 0.15);
+        
+        --nav-bg: #e7e9e1;
+        --nav-border: #11141a;
+        --nav-item-bg: #ffffff;
+        --nav-item-hover: #f7f9f2;
+        --nav-item-active: #11141a;
+        --nav-item-active-text: #ffffff;
+        
+        --hero-overlay: rgba(241, 242, 236, 0.82);
+        --vignette-center: rgba(255, 255, 255, 0.4);
+        --vignette-edge: rgba(235, 237, 230, 0.94);
+        
+        --system-mode-tag: "BROWSER: DAY";
+      }
+    }
+
+    /* Explicit Overrides when user clicks toggle (via [data-theme="dark"] / [data-theme="light"]) */
+    [data-theme="dark"] {
+      --bg-base: #06080d;
+      --bg-surface: #0e121a;
+      --bg-card: rgba(14, 18, 27, 0.88);
+      --bg-card-hover: rgba(22, 28, 42, 0.95);
+      --border-brutal: #2a3144;
+      --border-strong: #00f0ff;
+      --text-main: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --accent-glow: rgba(0, 240, 255, 0.25);
+      --shadow-brutal: 5px 5px 0px #000000;
+      --shadow-brutal-sm: 3px 3px 0px #000000;
+      --shadow-glow: 0 0 25px rgba(0, 240, 255, 0.2);
+      --nav-bg: #0b0f17;
+      --nav-border: #1e2638;
+      --nav-item-bg: #121824;
+      --nav-item-hover: #1c2538;
+      --nav-item-active: #00f0ff;
+      --nav-item-active-text: #050608;
+      --hero-overlay: rgba(6, 8, 13, 0.78);
+      --vignette-center: rgba(6, 8, 13, 0.35);
+      --vignette-edge: rgba(4, 5, 8, 0.96);
+      --system-mode-tag: "NIGHT MODE";
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f1f2ec;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.94);
+      --bg-card-hover: rgba(245, 247, 240, 1);
+      --border-brutal: #11141a;
+      --border-strong: #0047ff;
+      --text-main: #0c0e14;
+      --text-secondary: #4b5565;
+      --text-muted: #697386;
+      --primary: #0047ff;
+      --primary-hover: #0037cc;
+      --accent-glow: rgba(0, 71, 255, 0.2);
+      --shadow-brutal: 5px 5px 0px #11141a;
+      --shadow-brutal-sm: 3px 3px 0px #11141a;
+      --shadow-glow: 0 0 20px rgba(0, 71, 255, 0.15);
+      --nav-bg: #e7e9e1;
+      --nav-border: #11141a;
+      --nav-item-bg: #ffffff;
+      --nav-item-hover: #f7f9f2;
+      --nav-item-active: #11141a;
+      --nav-item-active-text: #ffffff;
+      --hero-overlay: rgba(241, 242, 236, 0.82);
+      --vignette-center: rgba(255, 255, 255, 0.4);
+      --vignette-edge: rgba(235, 237, 230, 0.94);
+      --system-mode-tag: "DAY MODE";
+    }
+
+    /* ==========================================================================
+       GLOBAL RESETS & PIXEL AESTHETICS
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark light;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-smooth), color var(--transition-smooth);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* Brutalist / Pixel Button Base */
+    .btn-brutal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.6rem;
+      font-family: var(--font-pixel);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 3px solid var(--border-brutal);
+      box-shadow: var(--shadow-brutal);
+      cursor: pointer;
+      transition: transform var(--transition-snap), box-shadow var(--transition-snap), background-color var(--transition-snap);
+      user-select: none;
+    }
+
+    .btn-brutal:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: calc(var(--shadow-brutal) + 2px 2px 0px #000);
+      border-color: var(--border-strong);
+    }
+
+    .btn-brutal:active {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0px var(--border-brutal);
+    }
+
+    .btn-brutal-primary {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--border-brutal);
+    }
+
+    .btn-brutal-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-brutal-accent {
+      background: var(--pixel-neon-green);
+      color: #050608;
+      border-color: #050608;
+    }
+
+    .btn-brutal-accent:hover {
+      background: var(--pixel-neon-cyan);
+    }
+
+    /* Container for content offset by left vertical nav */
+    .app-layout {
+      display: flex;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .main-viewport {
+      flex: 1;
+      margin-left: var(--nav-width);
+      width: calc(100% - var(--nav-width));
+      min-width: 0;
+      position: relative;
+      transition: margin-left var(--transition-smooth);
+    }
+
+    /* ==========================================================================
+       VERTICAL NAVIGATION BAR (LEFT SIDE OF SCREEN)
+       Pixel art aesthetic, accessible, high contrast & responsive
+       ========================================================================== */
+    .vertical-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: var(--nav-width);
+      height: 100vh;
+      background-color: var(--nav-bg);
+      border-right: 3px solid var(--nav-border);
+      box-shadow: 4px 0px 0px rgba(0, 0, 0, 0.25);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-brutal) transparent;
+      transition: transform var(--transition-smooth), background-color var(--transition-smooth);
+    }
+
+    /* Pixel Frame Header in Navbar */
+    .nav-header {
+      padding: 1.5rem 1.25rem 1rem 1.25rem;
+      border-bottom: 3px solid var(--nav-border);
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-profile-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .nav-pixel-avatar {
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--border-brutal);
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 0px var(--border-strong);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .nav-pixel-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      image-rendering: pixelated;
+    }
+
+    .nav-profile-info {
+      overflow: hidden;
+    }
+
+    .nav-player-label {
+      font-family: var(--font-pixel);
+      font-size: 0.6rem;
+      color: var(--pixel-neon-green);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .nav-player-name {
+      font-family: var(--font-pixel);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Pixel HP / Status Bar */
+    .nav-status-meter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-family: var(--font-pixel);
+      font-size: 0.55rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 0.35rem 0.5rem;
+      border: 1px dashed var(--border-brutal);
+    }
+
+    .nav-meter-bar {
+      flex: 1;
+      height: 6px;
+      background: #111;
+      border: 1px solid var(--border-brutal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-meter-fill {
+      width: 95%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--pixel-neon-green), var(--pixel-neon-cyan));
+    }
+
+    /* Navigation Links List */
+    .nav-links-menu {
+      padding: 1rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      flex: 1;
+    }
+
+    .nav-item {
+      list-style: none;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 0.85rem;
+      font-family: var(--font-pixel);
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      background-color: var(--nav-item-bg);
+      border: 2px solid var(--border-brutal);
+      box-shadow: 2px 2px 0px var(--border-brutal);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all var(--transition-snap);
+      position: relative;
+      outline: none;
+    }
+
+    /* Pixel Sprite / Icon Box */
+    .nav-pixel-icon {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      image-rendering: pixelated;
+    }
+
+    .nav-link-text {
+      flex: 1;
+    }
+
+    /* Pixel Chevron indicator */
+    .nav-link-chevron {
+      opacity: 0;
+      font-size: 0.65rem;
+      color: var(--border-strong);
+      transform: translateX(-4px);
+      transition: all var(--transition-snap);
+    }
+
+    /* Hover & Active States */
+    .nav-link:hover {
+      color: var(--text-main);
+      background-color: var(--nav-item-hover);
+      border-color: var(--border-strong);
+      transform: translateX(4px);
+      box-shadow: 4px 2px 0px var(--border-strong);
+    }
+
+    .nav-link:hover .nav-link-chevron {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .nav-link.active,
+    .nav-link[aria-current="page"] {
+      color: var(--nav-item-active-text);
+      background-color: var(--nav-item-active);
+      border-color: #000;
+      box-shadow: 3px 3px 0px #000;
+      transform: translateX(6px);
+      font-weight: 700;
+    }
+
+    .nav-link.active .nav-link-chevron,
+    .nav-link[aria-current="page"] .nav-link-chevron {
+      opacity: 1;
+      color: #000;
+    }
+
+    /* Focus Visible for Accessibility */
+    .nav-link:focus-visible {
+      outline: 3px dashed var(--pixel-neon-pink);
+      outline-offset: 3px;
+    }
+
+    /* Navbar Footer / Theme Controls */
+    .nav-footer {
+      padding: 1.25rem 1rem;
+      border-top: 3px solid var(--nav-border);
+      background: rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* Pixel Night Mode Toggle in Sidebar */
+    .pixel-theme-toggle {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      font-family: var(--font-pixel);
+      font-size: 0.65rem;
+      color: var(--text-main);
+      background: var(--bg-surface);
+      border: 2px solid var(--border-brutal);
+      box-shadow: 3px 3px 0px var(--border-brutal);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all var(--transition-snap);
+    }
+
+    .pixel-theme-toggle:hover {
+      border-color: var(--border-strong);
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--border-strong);
+    }
+
+    .pixel-theme-toggle:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px var(--border-brutal);
+    }
+
+    .theme-mode-pill {
+      font-size: 0.55rem;
+      padding: 0.15rem 0.4rem;
+      background: var(--border-brutal);
+      color: var(--text-main);
+      border-radius: 2px;
+    }
+
+    .nav-sys-note {
+      font-family: var(--font-pixel);
+      font-size: 0.52rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Mobile Floating Toggle Button */
+    .mobile-nav-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1100;
+      padding: 0.65rem 0.95rem;
+      font-family: var(--font-pixel);
+      font-size: 0.7rem;
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 3px solid var(--border-brutal);
+      box-shadow: 3px 3px 0px #000;
+      cursor: pointer;
+    }
+
+    .mobile-nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-smooth);
+    }
+
+    .mobile-nav-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       HERO SECTION: CINEMATIC & BRUTALIST STYLE WITH PROVIDED BACKGROUND
+       ========================================================================== */
+    .hero-cinematic {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      
+      /* Background Image Provided by User (wall danish.jfif) with Cinematic Multi-Tier Vignette */
+      background-image: 
+        radial-gradient(ellipse at center, var(--vignette-center) 0%, var(--vignette-edge) 90%),
+        linear-gradient(180deg, var(--hero-overlay) 0%, var(--bg-base) 100%),
+        url('wall danish.jfif');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      border-bottom: 4px solid var(--border-brutal);
+    }
+
+    /* Cinematic Film Grain & Scanline Overlay */
+    .hero-cinematic::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.12) 0px,
+        rgba(0, 0, 0, 0.12) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Cinematic Letterbox Bar: Top */
+    .cinematic-film-bar-top {
+      position: relative;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.85);
+      border-bottom: 2px solid var(--border-brutal);
+      padding: 0.6rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-pixel);
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .film-rec-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #ff0055;
+      font-weight: 700;
+    }
+
+    .rec-indicator {
+      width: 8px;
+      height: 8px;
+      background-color: #ff0055;
+      border-radius: 50%;
+      animation: blink 1.2s infinite steps(2);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    /* Hero Core Content */
+    .hero-content-wrap {
+      position: relative;
+      z-index: 2;
+      padding: 4rem 2.5rem 3rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 3.5rem;
+    }
+
+    /* Brutalist Crosshair Frame Corners */
+    .brutal-corner-mark {
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--border-strong);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .mark-tl { top: 1.5rem; left: 1.5rem; }
+    .mark-tr { top: 1.5rem; right: 1.5rem; }
+    .mark-bl { bottom: 1.5rem; left: 1.5rem; }
+    .mark-br { bottom: 1.5rem; right: 1.5rem; }
+
+    /* Welcome Ticker & Tag */
+    .hero-pretitle-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid var(--border-brutal);
+      box-shadow: 3px 3px 0px var(--border-strong);
+      padding: 0.4rem 0.85rem;
+      font-family: var(--font-pixel);
+      font-size: 0.65rem;
+      color: var(--pixel-neon-green);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Mammoth Brutalist Title */
+    .hero-brutal-title {
+      font-family: var(--font-sans);
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
+      text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-brutal-title .highlight-line {
+      display: block;
+      color: var(--border-strong);
+      position: relative;
+    }
+
+    /* Brutalist Subtitle Stamp */
+    .hero-role-stamp {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      background: var(--border-brutal);
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border-strong);
+      margin-bottom: 1.5rem;
+      box-shadow: 2px 2px 0px #000;
+    }
+
+    /* Brief Tagline */
+    .hero-brutal-tagline {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin-bottom: 2.25rem;
+      background: rgba(6, 8, 13, 0.6);
+      padding: 1rem 1.25rem;
+      border-left: 4px solid var(--border-strong);
+      backdrop-filter: blur(8px);
+    }
+
+    [data-theme="light"] .hero-brutal-tagline {
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--text-main);
+    }
+
+    /* Hero CTA Row */
+    .hero-action-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* Hero Viewfinder Frame (Right Column) */
+    .hero-viewfinder-card {
+      position: relative;
+      background: rgba(0, 0, 0, 0.65);
+      border: 3px solid var(--border-brutal);
+      box-shadow: 8px 8px 0px var(--border-strong);
+      padding: 1rem;
+      max-width: 380px;
+      margin: 0 auto;
+      backdrop-filter: blur(12px);
+    }
+
+    .viewfinder-media-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 2px solid var(--border-brutal);
+      background: #000;
+    }
+
+    .viewfinder-media-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform var(--transition-smooth), filter var(--transition-smooth);
+      filter: contrast(1.1) saturate(1.1);
+    }
+
+    .hero-viewfinder-card:hover .viewfinder-media-img {
+      transform: scale(1.04);
+    }
+
+    .viewfinder-hud {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 2px dashed var(--border-brutal);
+      font-family: var(--font-pixel);
+      font-size: 0.62rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .hud-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hud-val-active {
+      color: var(--pixel-neon-green);
+    }
+
+    /* Cinematic Film Bar: Bottom */
+    .cinematic-film-bar-bottom {
+      position: relative;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.88);
+      border-top: 2px solid var(--border-brutal);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .ticker-tech-items {
+      display: flex;
+      gap: 1rem;
+      font-family: var(--font-pixel);
+      font-size: 0.6rem;
+      color: var(--border-strong);
+    }
+
+    /* ==========================================================================
+       SECTION: ABOUT ME (CLEAN, MINIMALISTIC DESIGN)
+       ========================================================================== */
+    .about-section-minimal {
+      padding: 6.5rem 2.5rem;
+      border-bottom: 3px solid var(--border-brutal);
+      background: var(--bg-base);
+      position: relative;
+    }
+
+    .section-header-minimal {
+      margin-bottom: 3.5rem;
+      text-align: left;
+    }
+
+    .minimal-tag {
+      font-family: var(--font-pixel);
+      font-size: 0.65rem;
+      color: var(--border-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      background: rgba(0, 240, 255, 0.08);
+      padding: 0.25rem 0.65rem;
+      border: 1px solid var(--border-brutal);
+    }
+
+    .section-title-minimal {
+      font-family: var(--font-sans);
+      font-size: 2.85rem;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle-minimal {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    /* Main 2-Column About Grid */
+    .about-main-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    /* Profile Aside Card */
+    .about-profile-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border-brutal);
+      box-shadow: var(--shadow-brutal);
+      padding: 1.5rem;
+      position: sticky;
+      top: 2rem;
+      transition: all var(--transition-smooth);
+    }
+
+    .about-profile-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: calc(var(--shadow-brutal) + 2px 2px 0px var(--border-strong));
+    }
+
+    .profile-image-frame {
+      position: relative;
+      border: 2px solid var(--border-brutal);
+      background: #000;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform var(--transition-smooth);
+      filter: contrast(1.04);
+    }
+
+    .profile-image-frame:hover .about-portrait-img {
+      transform: scale(1.03);
+    }
+
+    .profile-status-badge {
+      position: absolute;
+      bottom: 0.85rem;
+      left: 0.85rem;
+      right: 0.85rem;
+      background: rgba(8, 11, 17, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-brutal);
+      padding: 0.45rem 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-pixel);
+      font-size: 0.58rem;
+      color: var(--pixel-neon-green);
+    }
+
+    [data-theme="light"] .profile-status-badge {
+      background: rgba(255, 255, 255, 0.92);
+      color: #058241;
+      border-color: #111;
+    }
+
+    .status-indicator-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--pixel-neon-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--pixel-neon-green);
+      animation: pulse 2s infinite;
+    }
+
+    .profile-card-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+      color: var(--text-main);
+    }
+
+    .profile-card-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--border-strong);
+      margin-bottom: 1.25rem;
+    }
+
+    .profile-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border-top: 1px dashed var(--border-brutal);
+      border-bottom: 1px dashed var(--border-brutal);
+      padding: 1rem 0;
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .meta-item strong {
+      color: var(--text-main);
+    }
+
+    .profile-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .stat-mini {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-brutal);
+      padding: 0.65rem 0.25rem;
+    }
+
+    .stat-mini-val {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--border-strong);
+    }
+
+    .stat-mini-lbl {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Right Column: Narrative & Pillars */
+    .about-content-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2.75rem;
+    }
+
+    .about-bio-article {
+      background: var(--bg-card);
+      border: 2px solid var(--border-brutal);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-brutal-sm);
+    }
+
+    .bio-section-title {
+      font-family: var(--font-sans);
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bio-lead {
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+      font-weight: 450;
+    }
+
+    .bio-lead strong {
+      color: var(--border-strong);
+    }
+
+    .bio-body {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    /* 4 Pillars Section */
+    .pillars-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .pillars-heading {
+      font-family: var(--font-pixel);
+      font-size: 0.8rem;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .pillar-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-brutal);
+      padding: 1.6rem;
+      box-shadow: var(--shadow-brutal-sm);
+      transition: all var(--transition-snap);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+      box-shadow: calc(var(--shadow-brutal-sm) + 2px 2px 0px var(--border-strong));
+    }
+
+    .pillar-icon-box {
+      font-size: 1.65rem;
+      margin-bottom: 0.85rem;
+      display: inline-block;
+    }
+
+    .pillar-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .pillar-desc {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* Highlights & Interests */
+    .highlights-interests-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .info-card-minimal {
+      background: var(--bg-card);
+      border: 2px solid var(--border-brutal);
+      padding: 1.6rem;
+      box-shadow: var(--shadow-brutal-sm);
+    }
+
+    .info-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+
+    .interests-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .interest-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.35rem 0.7rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-brutal);
+      color: var(--text-main);
+      transition: all var(--transition-snap);
+    }
+
+    .interest-pill:hover {
+      border-color: var(--border-strong);
+      color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .about-main-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-profile-card {
+        position: static;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .pillars-grid, .highlights-interests-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       STANDARD CONTENT SECTIONS (SKILLS, TIMELINE, PROJECTS, ETC.)
+       ========================================================================== */
+    section {
+      padding: 6rem 2.5rem;
+      border-bottom: 3px solid var(--border-brutal);
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header-brutal {
+      margin-bottom: 3.5rem;
+      text-align: left;
+    }
+
+    .section-index-tag {
+      font-family: var(--font-pixel);
+      font-size: 0.7rem;
+      color: var(--border-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title-brutal {
+      font-family: var(--font-sans);
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub-brutal {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+    }
+
+    /* Brutalist Card Elements */
+    .brutal-card {
+      background: var(--bg-card);
+      border: 3px solid var(--border-brutal);
+      box-shadow: var(--shadow-brutal);
+      padding: 2rem;
+      transition: all var(--transition-snap);
+      position: relative;
+    }
+
+    .brutal-card:hover {
+      border-color: var(--border-strong);
+      transform: translate(-3px, -3px);
+      box-shadow: calc(var(--shadow-brutal) + 3px 3px 0px var(--border-strong));
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Skills Badges */
+    .skill-badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
+    .skill-pixel-pill {
+      font-family: var(--font-pixel);
+      font-size: 0.65rem;
+      padding: 0.4rem 0.75rem;
+      background: var(--bg-surface);
+      border: 2px solid var(--border-brutal);
+      box-shadow: 2px 2px 0px var(--border-brutal);
+      color: var(--text-main);
+      transition: all var(--transition-snap);
+    }
+
+    .skill-pixel-pill:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      color: var(--border-strong);
+    }
+
+    /* Timeline */
+    .timeline-brutal {
+      position: relative;
+      padding-left: 2.5rem;
+      border-left: 3px dashed var(--border-strong);
+      margin-left: 1rem;
+    }
+
+    .timeline-node {
+      position: relative;
+      margin-bottom: 3.5rem;
+    }
+
+    .timeline-node:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot-pixel {
+      position: absolute;
+      left: calc(-2.5rem - 9px);
+      top: 0.25rem;
+      width: 16px;
+      height: 16px;
+      background: var(--border-strong);
+      border: 3px solid var(--bg-base);
+      box-shadow: 2px 2px 0px #000;
+    }
+
+    .timeline-period-tag {
+      font-family: var(--font-pixel);
+      font-size: 0.65rem;
+      color: var(--pixel-neon-green);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Testimonials Section */
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      background: var(--border-brutal);
+      border: 2px solid var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-pixel);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--border-strong);
+    }
+
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Interactive Chat Terminal Section */
+    .chat-terminal-wrap {
+      background: #080b11;
+      border: 3px solid var(--border-brutal);
+      box-shadow: 8px 8px 0px var(--border-strong);
+      max-width: 820px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .terminal-titlebar {
+      background: #111722;
+      border-bottom: 2px solid var(--border-brutal);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-pixel);
+      font-size: 0.65rem;
+      color: var(--text-main);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .t-dot {
+      width: 10px;
+      height: 10px;
+      border: 1px solid #000;
+    }
+
+    .t-red { background: #ff5f56; }
+    .t-yellow { background: #ffbd2e; }
+    .t-green { background: #27c93f; }
+
+    .terminal-screen {
+      padding: 1.5rem;
+      min-height: 260px;
+      max-height: 380px;
+      overflow-y: auto;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: #39ff14;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      background: #05070a;
+    }
+
+    .chat-msg {
+      line-height: 1.5;
+    }
+
+    .msg-bot {
+      color: #39ff14;
+    }
+
+    .msg-user {
+      color: #00f0ff;
+    }
+
+    .chat-prompt-suggestions {
+      padding: 0.75rem 1.5rem;
+      background: #0c111a;
+      border-top: 1px solid var(--border-brutal);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .prompt-chip {
+      font-family: var(--font-pixel);
+      font-size: 0.6rem;
+      background: #162030;
+      color: var(--text-main);
+      padding: 0.35rem 0.65rem;
+      border: 1px solid var(--border-brutal);
+      cursor: pointer;
+      transition: all var(--transition-snap);
+    }
+
+    .prompt-chip:hover {
+      background: var(--border-strong);
+      color: #000;
+    }
+
+    .chat-input-row {
+      display: flex;
+      border-top: 2px solid var(--border-brutal);
+      background: #090e16;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 0.9rem 1.25rem;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .chat-send-btn {
+      padding: 0 1.5rem;
+      background: var(--border-strong);
+      color: #000;
+      font-family: var(--font-pixel);
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 3rem 2.5rem;
+      background: var(--bg-surface);
+      border-top: 4px solid var(--border-brutal);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-flex {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-content-wrap {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .hero-brutal-title {
+        font-size: 3.25rem;
+      }
+      .hero-viewfinder-card {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      /* Mobile layout: hide fixed navbar off-screen and show toggle */
+      :root {
+        --nav-width: 0px;
+      }
+
+      .main-viewport {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .vertical-navbar {
+        transform: translateX(-100%);
+        width: 280px;
+      }
+
+      .vertical-navbar.open {
+        transform: translateX(0);
+      }
+
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .hero-cinematic {
+        padding-top: 4rem;
+      }
+
+      .cinematic-film-bar-top {
+        display: none;
+      }
+
+      .hero-brutal-title {
+        font-size: 2.5rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Backdrop & Open Button -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+  <button 
+    type="button" 
+    class="mobile-nav-toggle" 
+    id="mobile-nav-toggle" 
+    aria-label="Open Navigation Menu" 
+    aria-controls="left-navbar" 
+    aria-expanded="false"
+  >
+    ☰ MENU
+  </button>
+
+  <div class="app-layout">
+
+    <!-- ========================================================================
+         VERTICAL NAVIGATION BAR (LEFT SIDE OF THE SCREEN)
+         Includes links for: Home, About Me, Skills, Timeline, Projects, 
+         Testimonials, Chat, Contact. Pixel art aesthetic & accessible.
+         ======================================================================== -->
+    <aside 
+      class="vertical-navbar" 
+      id="left-navbar" 
+      role="navigation" 
+      aria-label="Main Portfolio Navigation"
+    >
+      <div>
+        <!-- Navbar Header Block (Pixel Arcade Player Dossier) -->
+        <div class="nav-header">
+          <div class="nav-profile-badge">
+            <div class="nav-pixel-avatar">
+              <!-- Pixel Art Avatar Preview (Using provided photo) -->
+              <img 
+                src="sdf photo.jpeg" 
+                alt="Syed Danish Furqhan 8-bit Avatar" 
+                onerror="this.src='https://images.unsplash.com/photo-1534972195531-a756b1126f24?auto=format&fit=crop&w=120&q=80'"
+              />
+            </div>
+            <div class="nav-profile-info">
+              <div class="nav-player-label">PLAYER 1 // READY</div>
+              <div class="nav-player-name" title="Syed Danish Furqhan">DANISH FURQHAN</div>
+            </div>
+          </div>
+
+          <!-- Pixel Level & Status Indicator -->
+          <div class="nav-status-meter">
+            <span>LVL 99</span>
+            <div class="nav-meter-bar" aria-label="Experience meter at 95 percent">
+              <div class="nav-meter-fill"></div>
+            </div>
+            <span style="color: var(--pixel-neon-green);">ONLINE</span>
+          </div>
+        </div>
+
+        <!-- Semantic Navigation Menu with Required Links -->
+        <nav aria-label="Sidebar Section Links">
+          <ul class="nav-links-menu" id="nav-menu-list">
+            
+            <!-- 1. Home Link -->
+            <li class="nav-item">
+              <a href="#hero" class="nav-link active" id="nav-link-home">
+                <span class="nav-pixel-icon" aria-hidden="true">⌂</span>
+                <span class="nav-link-text">Home</span>
+                <span class="nav-link-chevron" aria-hidden="true">►</span>
+              </a>
+            </li>
+
+            <!-- 2. About Me Link -->
+            <li class="nav-item">
+              <a href="#about" class="nav-link" id="nav-link-about">
+                <span class="nav-pixel-icon" aria-hidden="true">웃</span>
+                <span class="nav-link-text">About Me</span>
+                <span class="nav-link-chevron" aria-hidden="true">►</span>
+              </a>
+            </li>
+
+            <!-- 3. Skills Link -->
+            <li class="nav-item">
+              <a href="#skills" class="nav-link" id="nav-link-skills">
+                <span class="nav-pixel-icon" aria-hidden="true">⚡</span>
+                <span class="nav-link-text">Skills</span>
+                <span class="nav-link-chevron" aria-hidden="true">►</span>
+              </a>
+            </li>
+
+            <!-- 4. Timeline Link -->
+            <li class="nav-item">
+              <a href="#timeline" class="nav-link" id="nav-link-timeline">
+                <span class="nav-pixel-icon" aria-hidden="true">⏱</span>
+                <span class="nav-link-text">Timeline</span>
+                <span class="nav-link-chevron" aria-hidden="true">►</span>
+              </a>
+            </li>
+
+            <!-- 5. Projects Link -->
+            <li class="nav-item">
+              <a href="#projects" class="nav-link" id="nav-link-projects">
+                <span class="nav-pixel-icon" aria-hidden="true">🕹</span>
+                <span class="nav-link-text">Projects</span>
+                <span class="nav-link-chevron" aria-hidden="true">►</span>
+              </a>
+            </li>
+
+            <!-- 6. Testimonials Link -->
+            <li class="nav-item">
+              <a href="#testimonials" class="nav-link" id="nav-link-testimonials">
+                <span class="nav-pixel-icon" aria-hidden="true">★</span>
+                <span class="nav-link-text">Testimonials</span>
+                <span class="nav-link-chevron" aria-hidden="true">►</span>
+              </a>
+            </li>
+
+            <!-- 7. Chat Link -->
+            <li class="nav-item">
+              <a href="#chat" class="nav-link" id="nav-link-chat">
+                <span class="nav-pixel-icon" aria-hidden="true">💬</span>
+                <span class="nav-link-text">Chat</span>
+                <span class="nav-link-chevron" aria-hidden="true">►</span>
+              </a>
+            </li>
+
+            <!-- 8. Contact Link -->
+            <li class="nav-item">
+              <a href="#contact" class="nav-link" id="nav-link-contact">
+                <span class="nav-pixel-icon" aria-hidden="true">✉</span>
+                <span class="nav-link-text">Contact</span>
+                <span class="nav-link-chevron" aria-hidden="true">►</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Navbar Footer: Night Mode Toggle with CSS Media Query Sync -->
+      <div class="nav-footer">
+        <button 
+          type="button" 
+          class="pixel-theme-toggle" 
+          id="sidebar-theme-toggle" 
+          aria-label="Toggle Night/Day Mode"
+        >
+          <span style="display: flex; align-items: center; gap: 0.4rem;">
+            <span id="theme-btn-icon" aria-hidden="true">🌙</span>
+            <span id="theme-btn-label">THEME</span>
+          </span>
+          <span class="theme-mode-pill" id="theme-mode-pill">AUTO (CSS)</span>
+        </button>
+
+        <div class="nav-sys-note">
+          PRESS [TAB] TO NAVIGATE<br />
+          CSS MEDIA QUERY: ACTIVE
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- ========================================================================
+         MAIN VIEWPORT
+         Houses the cinematic brutalist hero, core sections, chat, and footer
+         ======================================================================== -->
+    <div class="main-viewport">
+
+      <!-- ======================================================================
+           HERO SECTION: CINEMATIC & BRUTALIST STYLE
+           Features user-provided background (wall danish.jfif), photo (sdf photo.jpeg),
+           night mode toggle sync, welcome title, and brief tagline
+           ====================================================================== -->
+      <header class="hero-cinematic" id="hero">
+        
+        <!-- Top Cinematic Telemetry & Letterbox Strip -->
+        <div class="cinematic-film-bar-top">
+          <div class="film-rec-dot">
+            <span class="rec-indicator" aria-hidden="true"></span>
+            <span>REC ● LIVE</span>
+          </div>
+          <div>ASPECT: 2.39:1 CINEMASCOPE // 24 FPS</div>
+          <div>TIMECODE: 00:00:24:18</div>
+          <div>LAT: 12.9716° N &bull; LON: 77.5946° E</div>
+        </div>
+
+        <!-- Corner Brutalist Crosshairs -->
+        <span class="brutal-corner-mark mark-tl" aria-hidden="true">+</span>
+        <span class="brutal-corner-mark mark-tr" aria-hidden="true">+</span>
+        <span class="brutal-corner-mark mark-bl" aria-hidden="true">+</span>
+        <span class="brutal-corner-mark mark-br" aria-hidden="true">+</span>
+
+        <!-- Main Hero Content Container -->
+        <div class="hero-content-wrap">
+          
+          <!-- Left Column: Welcome Title, Tagline, CTAs -->
+          <div class="hero-text-block">
+            
+            <!-- Welcome Pre-Title Ticker -->
+            <div class="hero-pretitle-box">
+              <span>⚡</span>
+              <span>WELCOME VISITOR // SYSTEM ACCESS GRANTED</span>
+            </div>
+
+            <!-- Welcome Mammoth Brutalist Title -->
+            <h1 class="hero-brutal-title" id="hero-title">
+              SYED DANISH
+              <span class="highlight-line">FURQHAN</span>
+            </h1>
+
+            <!-- Role Stamp -->
+            <div class="hero-role-stamp">
+              [ SOFTWARE ENGINEER &bull; SYSTEM ARCHITECT ]
+            </div>
+
+            <!-- Brief Tagline -->
+            <p class="hero-brutal-tagline">
+              Engineering resilient cloud microservices, high-throughput data architectures, and cinematic digital interfaces with uncompromising structural integrity.
+            </p>
+
+            <!-- Brutalist Action Controls -->
+            <div class="hero-action-row">
+              <a href="#projects" class="btn-brutal btn-brutal-accent" id="hero-btn-projects">
+                [01] EXPLORE PROJECTS ↗
+              </a>
+              <a href="#chat" class="btn-brutal btn-brutal-primary" id="hero-btn-chat">
+                [02] OPEN CHAT TERMINAL 💬
+              </a>
+              <a href="#contact" class="btn-brutal" id="hero-btn-contact">
+                [03] CONTACT //
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Cinematic Brutalist Viewfinder Dossier Card -->
+          <div class="hero-visual-block">
+            <div class="hero-viewfinder-card">
+              
+              <!-- Profile Photo in Viewfinder -->
+              <div class="viewfinder-media-wrap">
+                <img 
+                  src="sdf photo.jpeg" 
+                  alt="Portrait of Software Engineer Syed Danish Furqhan" 
+                  class="viewfinder-media-img"
+                  loading="eager"
+                  onerror="this.src='https://images.unsplash.com/photo-1534972195531-a756b1126f24?auto=format&fit=crop&w=800&q=80'"
+                />
+              </div>
+
+              <!-- Viewfinder HUD Metadata -->
+              <div class="viewfinder-hud">
+                <div class="hud-row">
+                  <span>SUBJECT:</span>
+                  <span style="color: var(--text-main);">SYED DANISH FURQHAN</span>
+                </div>
+                <div class="hud-row">
+                  <span>CLASSIFICATION:</span>
+                  <span class="hud-val-active">FULL-STACK &amp; CLOUD ARCHITECT</span>
+                </div>
+                <div class="hud-row">
+                  <span>DEPLOYMENT:</span>
+                  <span class="hud-val-active">READY FOR CONTRACTS &amp; ROLES</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Cinematic Telemetry Strip -->
+        <div class="cinematic-film-bar-bottom">
+          <div>// SPEC: ARCHITECTURE_V4.2 // MEM: 64GB // CORES: DISTRIBUTED</div>
+          <div class="ticker-tech-items">
+            <span>[TYPESCRIPT]</span>
+            <span>[PYTHON]</span>
+            <span>[GO]</span>
+            <span>[DOCKER]</span>
+            <span>[KAFKA]</span>
+            <span>[POSTGRES]</span>
+          </div>
+          <div>STATUS: 100% OPERATIONAL</div>
+        </div>
+
+      </header>
+
+
+      <!-- ======================================================================
+           MAIN CONTENT SECTIONS
+           ====================================================================== -->
+      <main id="main-content">
+
+        <!-- ====================================================================
+             SECTION 1: ABOUT ME (#about) - CLEAN, MINIMALISTIC DESIGN
+             Features profile image, short developer bio, career highlights,
+             personal interests, and the 4 core pillars: Coding, Communication,
+             Teamwork, and Problem Solving.
+             ==================================================================== -->
+        <section id="about" class="about-section-minimal" aria-labelledby="about-heading">
+          <div class="section-inner">
+            
+            <!-- Section Header: Clean & Minimal -->
+            <div class="section-header-minimal">
+              <span class="minimal-tag">01 &bull; PROFILE &amp; PHILOSOPHY</span>
+              <h2 class="section-title-minimal" id="about-heading">About Me</h2>
+              <p class="section-subtitle-minimal">
+                Software engineer dedicated to building resilient distributed systems, scalable web applications, and intuitive user experiences with clean architectural discipline.
+              </p>
+            </div>
+
+            <!-- Main 2-Column About Grid -->
+            <div class="about-main-grid">
+              
+              <!-- Left Column: Profile Card, Image & Key Metrics -->
+              <aside class="about-profile-card" aria-label="Developer Profile Card">
+                <div class="profile-image-frame">
+                  <!-- Profile Photo (User provided asset with graceful fallback) -->
+                  <img 
+                    src="sdf photo.jpeg" 
+                    alt="Syed Danish Furqhan - Software Engineer Profile Photo" 
+                    class="about-portrait-img" 
+                    loading="lazy"
+                    onerror="this.src='https://images.unsplash.com/photo-1534972195531-a756b1126f24?auto=format&fit=crop&w=800&q=80'"
+                  />
+                  <!-- Status Indicator Badge -->
+                  <div class="profile-status-badge">
+                    <span class="status-indicator-dot" aria-hidden="true"></span>
+                    <span>Available for Roles &amp; Projects</span>
+                  </div>
+                </div>
+
+                <div class="profile-card-details">
+                  <h3 class="profile-card-name">Syed Danish Furqhan</h3>
+                  <p class="profile-card-title">Software Engineer &bull; System Architect</p>
+                  
+                  <div class="profile-meta-list">
+                    <div class="meta-item">
+                      <span class="meta-icon" aria-hidden="true">📍</span>
+                      <span><strong>Location:</strong> Open to Remote &amp; On-Site</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-icon" aria-hidden="true">🎓</span>
+                      <span><strong>Education:</strong> B.E. in Computer Science</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-icon" aria-hidden="true">⚡</span>
+                      <span><strong>Core Focus:</strong> Full-Stack &amp; Cloud Systems</span>
+                    </div>
+                  </div>
+
+                  <!-- Quick Career Metrics -->
+                  <div class="profile-stats-row">
+                    <div class="stat-mini">
+                      <span class="stat-mini-val">5+</span>
+                      <span class="stat-mini-lbl">Years Exp</span>
+                    </div>
+                    <div class="stat-mini">
+                      <span class="stat-mini-val">20+</span>
+                      <span class="stat-mini-lbl">Projects</span>
+                    </div>
+                    <div class="stat-mini">
+                      <span class="stat-mini-val">99.9%</span>
+                      <span class="stat-mini-lbl">Uptime</span>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+
+              <!-- Right Column: Bio Narrative + 4 Core Pillars + Highlights & Interests -->
+              <div class="about-content-col">
+                
+                <!-- Short Bio Narrative -->
+                <article class="about-bio-article">
+                  <h3 class="bio-section-title">
+                    <span>⚡</span> Engineering with Purpose &amp; Precision
+                  </h3>
+                  <p class="bio-lead">
+                    Hi, I'm <strong>Syed Danish Furqhan</strong>—a software engineer driven by transforming intricate, real-world problems into clean, high-performance, and maintainable software systems.
+                  </p>
+                  <p class="bio-body">
+                    My background spans modern JavaScript/TypeScript ecosystems, cloud-native backend services, and scalable database architectures. I care deeply about writing self-healing, well-tested code that stands the test of time, reducing latency bottlenecks, and crafting user experiences that feel immediate and dependable.
+                  </p>
+                </article>
+
+                <!-- The 4 Core Pillars Grid (Coding, Communication, Teamwork, Problem Solving) -->
+                <div class="pillars-container">
+                  <h4 class="pillars-heading">
+                    <span>✦</span> Core Engineering Capabilities
+                  </h4>
+                  <div class="pillars-grid">
+                    
+                    <!-- Pillar 1: Coding (Technical Craftsmanship) -->
+                    <div class="pillar-card">
+                      <div class="pillar-icon-box" aria-hidden="true">💻</div>
+                      <h5 class="pillar-title">Coding Craftsmanship</h5>
+                      <p class="pillar-desc">
+                        Writing clean, modular, and type-safe code across TypeScript, Python, and Go. Dedicated to SOLID principles, DRY abstractions, comprehensive automated testing, and zero-downtime refactoring.
+                      </p>
+                    </div>
+
+                    <!-- Pillar 2: Communication Skills -->
+                    <div class="pillar-card">
+                      <div class="pillar-icon-box" aria-hidden="true">🗣️</div>
+                      <h5 class="pillar-title">Communication Skills</h5>
+                      <p class="pillar-desc">
+                        Translating complex distributed system architectures into lucid RFCs, API documentation, and user stories. Ensuring seamless alignment across product managers, designers, and engineering stakeholders.
+                      </p>
+                    </div>
+
+                    <!-- Pillar 3: Teamwork & Collaboration -->
+                    <div class="pillar-card">
+                      <div class="pillar-icon-box" aria-hidden="true">🤝</div>
+                      <h5 class="pillar-title">Teamwork &amp; Collaboration</h5>
+                      <p class="pillar-desc">
+                        Thriving in fast-paced agile squads. Championing empathetic, constructive code reviews, collaborative pair programming, knowledge-sharing workshops, and mentoring teammates to raise overall squad velocity.
+                      </p>
+                    </div>
+
+                    <!-- Pillar 4: Problem Solving Skills -->
+                    <div class="pillar-card">
+                      <div class="pillar-icon-box" aria-hidden="true">🧩</div>
+                      <h5 class="pillar-title">Problem Solving Skills</h5>
+                      <p class="pillar-desc">
+                        Approaching technical bottlenecks through first-principles reasoning and rigorous root-cause analysis. Decomposing ambiguous requirements, optimizing algorithmic complexity, and architecting resilient failovers.
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Career Highlights & Personal Interests -->
+                <div class="highlights-interests-grid">
+                  
+                  <!-- Career Highlights -->
+                  <div class="info-card-minimal">
+                    <h5 class="info-card-title">
+                      <span aria-hidden="true">🚀</span> Career Highlights
+                    </h5>
+                    <ul class="info-bullets">
+                      <li>Architected core microservice decoupling that decreased API latency by <strong>38%</strong>.</li>
+                      <li>Engineered high-throughput event processing pipelines handling <strong>50k+ logs/sec</strong>.</li>
+                      <li>Delivered end-to-end full-stack applications serving over <strong>250k+ active users</strong>.</li>
+                      <li>Built CI/CD automated test suites that eliminated deployment regression incidents.</li>
+                    </ul>
+                  </div>
+
+                  <!-- Personal Interests -->
+                  <div class="info-card-minimal">
+                    <h5 class="info-card-title">
+                      <span aria-hidden="true">🕹️</span> Personal Interests
+                    </h5>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.85rem; line-height: 1.55;">
+                      Beyond the IDE, I love exploring emerging technologies, writing technical deep dives, and appreciating creative design aesthetics:
+                    </p>
+                    <div class="interests-tags">
+                      <span class="interest-pill">Open Source</span>
+                      <span class="interest-pill">Distributed Systems RFCs</span>
+                      <span class="interest-pill">Technical Blogging</span>
+                      <span class="interest-pill">Retro Pixel Art &amp; Gaming</span>
+                      <span class="interest-pill">System Performance Profiling</span>
+                      <span class="interest-pill">Continuous Learning</span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             SECTION 2: SKILLS (#skills)
+             ==================================================================== -->
+        <section id="skills" aria-labelledby="skills-heading">
+          <div class="section-inner">
+            <div class="section-header-brutal">
+              <span class="section-index-tag">02 // ARSENAL</span>
+              <h2 class="section-title-brutal" id="skills-heading">Technical Skills</h2>
+              <p class="section-sub-brutal">
+                Battle-tested languages, backend runtimes, distributed databases, and frontend toolchains.
+              </p>
+            </div>
+
+            <div class="grid-3">
+              <!-- Frontend -->
+              <article class="brutal-card">
+                <h3 style="font-family: var(--font-pixel); font-size: 0.85rem; margin-bottom: 0.75rem;">
+                  FRONTEND &amp; UI
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                  Interactive, accessible web apps and component architecture.
+                </p>
+                <div class="skill-badge-group">
+                  <span class="skill-pixel-pill">HTML5</span>
+                  <span class="skill-pixel-pill">Vanilla CSS</span>
+                  <span class="skill-pixel-pill">JavaScript ES6+</span>
+                  <span class="skill-pixel-pill">TypeScript</span>
+                  <span class="skill-pixel-pill">React.js</span>
+                  <span class="skill-pixel-pill">Next.js</span>
+                </div>
+              </article>
+
+              <!-- Backend -->
+              <article class="brutal-card">
+                <h3 style="font-family: var(--font-pixel); font-size: 0.85rem; margin-bottom: 0.75rem;">
+                  BACKEND &amp; APIS
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                  High-throughput APIs, distributed concurrency, microservices.
+                </p>
+                <div class="skill-badge-group">
+                  <span class="skill-pixel-pill">Node.js</span>
+                  <span class="skill-pixel-pill">Express</span>
+                  <span class="skill-pixel-pill">Python</span>
+                  <span class="skill-pixel-pill">FastAPI</span>
+                  <span class="skill-pixel-pill">RESTful APIs</span>
+                  <span class="skill-pixel-pill">GraphQL</span>
+                </div>
+              </article>
+
+              <!-- Cloud & DevOps -->
+              <article class="brutal-card">
+                <h3 style="font-family: var(--font-pixel); font-size: 0.85rem; margin-bottom: 0.75rem;">
+                  DEVOPS &amp; STORAGE
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                  Automated deployments, containers, and data resilience.
+                </p>
+                <div class="skill-badge-group">
+                  <span class="skill-pixel-pill">Docker</span>
+                  <span class="skill-pixel-pill">PostgreSQL</span>
+                  <span class="skill-pixel-pill">MongoDB</span>
+                  <span class="skill-pixel-pill">Redis</span>
+                  <span class="skill-pixel-pill">Git / CI-CD</span>
+                  <span class="skill-pixel-pill">Linux Bash</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             SECTION 3: TIMELINE (#timeline)
+             ==================================================================== -->
+        <section id="timeline" aria-labelledby="timeline-heading">
+          <div class="section-inner">
+            <div class="section-header-brutal">
+              <span class="section-index-tag">03 // CHRONOLOGY</span>
+              <h2 class="section-title-brutal" id="timeline-heading">Timeline &amp; Career</h2>
+              <p class="section-sub-brutal">
+                A chronological breakdown of professional engineering milestones and academic foundations.
+              </p>
+            </div>
+
+            <div class="timeline-brutal">
+              
+              <!-- Role 1 -->
+              <article class="timeline-node">
+                <div class="timeline-dot-pixel" aria-hidden="true"></div>
+                <div class="timeline-period-tag">[2023 — PRESENT]</div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.25rem;">
+                  Senior Software Engineer &mdash; Distributed Platforms
+                </h3>
+                <div style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--border-strong); margin-bottom: 0.75rem;">
+                  Enterprise Cloud Infrastructure &bull; Full-Time
+                </div>
+                <p style="color: var(--text-secondary); line-height: 1.6;">
+                  Spearheaded the migration of legacy monolithic endpoints to asynchronous microservices. Designed high-throughput caching tiers using Redis, cutting API response times by 38% and reducing server infrastructure costs.
+                </p>
+              </article>
+
+              <!-- Role 2 -->
+              <article class="timeline-node">
+                <div class="timeline-dot-pixel" aria-hidden="true"></div>
+                <div class="timeline-period-tag">[2021 — 2023]</div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.25rem;">
+                  Software Engineer &mdash; Web Applications
+                </h3>
+                <div style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--border-strong); margin-bottom: 0.75rem;">
+                  Cloud Solutions Lab &bull; Full-Time
+                </div>
+                <p style="color: var(--text-secondary); line-height: 1.6;">
+                  Built real-time web applications using React, TypeScript, and Node.js. Integrated relational database schemas with PostgreSQL, wrote automated integration tests with Jest, and collaborated closely with UI/UX teams.
+                </p>
+              </article>
+
+              <!-- Education -->
+              <article class="timeline-node">
+                <div class="timeline-dot-pixel" aria-hidden="true"></div>
+                <div class="timeline-period-tag">[2017 — 2021]</div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.25rem;">
+                  Bachelor of Engineering in Computer Science
+                </h3>
+                <div style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--border-strong); margin-bottom: 0.75rem;">
+                  School of Computer Science &amp; Engineering
+                </div>
+                <p style="color: var(--text-secondary); line-height: 1.6;">
+                  Graduated with top academic standing. Core coursework: Data Structures, Algorithms, Operating Systems, Database Management Systems, Computer Networks, and Object-Oriented System Design.
+                </p>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             SECTION 4: PROJECTS (#projects)
+             ==================================================================== -->
+        <section id="projects" aria-labelledby="projects-heading">
+          <div class="section-inner">
+            <div class="section-header-brutal">
+              <span class="section-index-tag">04 // REPERTORY</span>
+              <h2 class="section-title-brutal" id="projects-heading">Featured Projects</h2>
+              <p class="section-sub-brutal">
+                Production-grade applications and open-source software engineered for speed, scale, and utility.
+              </p>
+            </div>
+
+            <div class="grid-2">
+              
+              <!-- Project 1 -->
+              <article class="brutal-card">
+                <div style="font-family: var(--font-pixel); font-size: 0.65rem; color: var(--pixel-neon-green); margin-bottom: 0.5rem;">
+                  SYS_01 // CLOUD NATIVE
+                </div>
+                <h3 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 0.75rem;">
+                  CloudPulse &mdash; Real-Time Telemetry Pipeline
+                </h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+                  Distributed observability engine processing 50,000 metrics/sec. Features WebSocket live telemetry graphs, automated anomaly triggers, and multi-tenant access control.
+                </p>
+                <div class="skill-badge-group" style="margin-bottom: 1.5rem;">
+                  <span class="skill-pixel-pill">TypeScript</span>
+                  <span class="skill-pixel-pill">Node.js</span>
+                  <span class="skill-pixel-pill">Redis</span>
+                  <span class="skill-pixel-pill">Docker</span>
+                </div>
+                <div style="display: flex; gap: 0.85rem;">
+                  <a href="#" class="btn-brutal btn-brutal-primary" style="padding: 0.5rem 1rem; font-size: 0.65rem;">Live Demo ↗</a>
+                  <a href="#" class="btn-brutal" style="padding: 0.5rem 1rem; font-size: 0.65rem;">Source Code</a>
+                </div>
+              </article>
+
+              <!-- Project 2 -->
+              <article class="brutal-card">
+                <div style="font-family: var(--font-pixel); font-size: 0.65rem; color: var(--pixel-neon-cyan); margin-bottom: 0.5rem;">
+                  SYS_02 // COLLABORATIVE
+                </div>
+                <h3 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 0.75rem;">
+                  DevSync &mdash; Multi-Cursor Code Studio
+                </h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+                  Real-time collaborative developer workspace with shared live compiler execution, WebAssembly sandboxing, markdown technical logs, and instant branch sharing.
+                </p>
+                <div class="skill-badge-group" style="margin-bottom: 1.5rem;">
+                  <span class="skill-pixel-pill">React</span>
+                  <span class="skill-pixel-pill">WebSockets</span>
+                  <span class="skill-pixel-pill">Wasm</span>
+                  <span class="skill-pixel-pill">Express</span>
+                </div>
+                <div style="display: flex; gap: 0.85rem;">
+                  <a href="#" class="btn-brutal btn-brutal-primary" style="padding: 0.5rem 1rem; font-size: 0.65rem;">Live Demo ↗</a>
+                  <a href="#" class="btn-brutal" style="padding: 0.5rem 1rem; font-size: 0.65rem;">Source Code</a>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             SECTION 5: TESTIMONIALS (#testimonials)
+             ==================================================================== -->
+        <section id="testimonials" aria-labelledby="testimonials-heading">
+          <div class="section-inner">
+            <div class="section-header-brutal">
+              <span class="section-index-tag">05 // ENDORSEMENTS</span>
+              <h2 class="section-title-brutal" id="testimonials-heading">Testimonials</h2>
+              <p class="section-sub-brutal">
+                Feedback from engineering leaders, collaborators, and technical peers.
+              </p>
+            </div>
+
+            <div class="grid-3">
+              
+              <!-- Review 1 -->
+              <article class="brutal-card">
+                <div class="testimonial-avatar" aria-hidden="true">★</div>
+                <p class="testimonial-quote">
+                  "Danish has a rare combination of rock-solid backend architectural discipline and an intuitive flair for snappy, modern user interfaces. He consistently delivers clean code that never requires firefighting."
+                </p>
+                <div class="testimonial-author">Sarah Lin</div>
+                <div class="testimonial-role">VP of Engineering &bull; ScaleStack Labs</div>
+              </article>
+
+              <!-- Review 2 -->
+              <article class="brutal-card">
+                <div class="testimonial-avatar" aria-hidden="true">⚡</div>
+                <p class="testimonial-quote">
+                  "Whenever our team faced a bottleneck with data pipeline concurrency, Danish stepped up with thoughtful profiling and elegant refactoring. Working alongside him makes the entire engineering squad faster."
+                </p>
+                <div class="testimonial-author">Marcus Vance</div>
+                <div class="testimonial-role">Principal Systems Architect &bull; CloudSync</div>
+              </article>
+
+              <!-- Review 3 -->
+              <article class="brutal-card">
+                <div class="testimonial-avatar" aria-hidden="true">🕹</div>
+                <p class="testimonial-quote">
+                  "Danish's attention to detail, accessibility standards, and pixel-perfect aesthetic execution set him apart. He treats software engineering like true craftsmanship."
+                </p>
+                <div class="testimonial-author">Elena Rostova</div>
+                <div class="testimonial-role">Staff Product Lead &bull; Nexus Global</div>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             SECTION 6: CHAT (#chat)
+             Interactive retro terminal chat interface with simulated bot logic
+             ==================================================================== -->
+        <section id="chat" aria-labelledby="chat-heading">
+          <div class="section-inner">
+            <div class="section-header-brutal">
+              <span class="section-index-tag">06 // TERMINAL</span>
+              <h2 class="section-title-brutal" id="chat-heading">Interactive Chat</h2>
+              <p class="section-sub-brutal">
+                Have a question about Syed Danish Furqhan's stack, availability, or background? Ask the interactive terminal bot!
+              </p>
+            </div>
+
+            <div class="chat-terminal-wrap">
+              <!-- Terminal Header -->
+              <div class="terminal-titlebar">
+                <div class="terminal-dots">
+                  <span class="t-dot t-red"></span>
+                  <span class="t-dot t-yellow"></span>
+                  <span class="t-dot t-green"></span>
+                </div>
+                <div>SDF-TERMINAL-ASSISTANT v2.4 // [READY]</div>
+                <div style="color: var(--pixel-neon-green);">● ONLINE</div>
+              </div>
+
+              <!-- Terminal Screen Messages -->
+              <div class="terminal-screen" id="chat-screen" role="log" aria-live="polite">
+                <div class="chat-msg msg-bot">
+                  &gt; [SYSTEM INITIALIZED] Welcome to Syed Danish Furqhan's portfolio terminal.<br />
+                  &gt; Type a prompt or select a quick option below to inspect credentials, background, or projects.
+                </div>
+              </div>
+
+              <!-- Prompt Chips for Easy Interaction -->
+              <div class="chat-prompt-suggestions">
+                <button type="button" class="prompt-chip" data-prompt="What is Danish's tech stack?">
+                  [1] Tech Stack?
+                </button>
+                <button type="button" class="prompt-chip" data-prompt="Is Danish open for job opportunities?">
+                  [2] Open to hire?
+                </button>
+                <button type="button" class="prompt-chip" data-prompt="Show me his top project highlights.">
+                  [3] Top Projects?
+                </button>
+                <button type="button" class="prompt-chip" data-prompt="How can I contact him directly?">
+                  [4] How to contact?
+                </button>
+              </div>
+
+              <!-- Chat Input Form -->
+              <form class="chat-input-row" id="terminal-chat-form" action="javascript:void(0);">
+                <input 
+                  type="text" 
+                  class="chat-input" 
+                  id="chat-user-input" 
+                  placeholder="Type a message (e.g., 'What are his skills?') and press ENTER..." 
+                  aria-label="Terminal message input" 
+                  autocomplete="off"
+                />
+                <button type="submit" class="chat-send-btn" id="chat-submit-btn">
+                  SEND ►
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             SECTION 7: CONTACT (#contact)
+             ==================================================================== -->
+        <section id="contact" aria-labelledby="contact-heading">
+          <div class="section-inner">
+            <div class="section-header-brutal">
+              <span class="section-index-tag">07 // TRANSMISSION</span>
+              <h2 class="section-title-brutal" id="contact-heading">Get In Touch</h2>
+              <p class="section-sub-brutal">
+                Have a challenging system architecture challenge, engineering opening, or open-source partnership? Send a message directly.
+              </p>
+            </div>
+
+            <div class="brutal-card" style="text-align: center; max-width: 720px; margin: 0 auto;">
+              <h3 style="font-family: var(--font-pixel); font-size: 1.15rem; margin-bottom: 1rem; color: var(--border-strong);">
+                INITIATE DIRECT CONTACT
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
+                I am actively considering high-impact full-stack and distributed engineering roles. My inbox is always monitored.
+              </p>
+              
+              <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="mailto:syed.danish.furqhan@example.com" class="btn-brutal btn-brutal-primary" id="email-contact-link">
+                  ✉ SEND EMAIL DIRECTLY
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-brutal">
+                  GITHUB ↗
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-brutal">
+                  LINKEDIN ↗
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+
+      <!-- ======================================================================
+           SEMANTIC FOOTER
+           ====================================================================== -->
+      <footer class="site-footer" id="site-footer">
+        <div class="footer-flex">
+          <div>
+            <div style="font-family: var(--font-pixel); font-size: 0.8rem; color: var(--text-main); margin-bottom: 0.35rem;">
+              SYED DANISH FURQHAN // 2026
+            </div>
+            <div>Software Engineer &bull; Cinematic Brutalism &amp; Pixel Art Architecture</div>
+          </div>
+          <div style="font-family: var(--font-pixel); font-size: 0.65rem;">
+            <a href="#hero" style="color: var(--border-strong);">[▲ BACK TO TOP]</a>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /.main-viewport -->
+
+  </div><!-- /.app-layout -->
+
+
+  <!-- ==========================================================================
+       SCRIPTS: NIGHT MODE TOGGLE (WITH CSS MEDIA QUERY DETECT), 
+       ACTIVE LINK HIGHLIGHTING & CHAT TERMINAL INTERACTION
+       ========================================================================== -->
+  <script>
+    // ========================================================================
+    // 1. NIGHT MODE TOGGLE & CSS MEDIA QUERY BROWSER THEME DETECTION
+    // ========================================================================
+    const htmlElement = document.documentElement;
+    const sidebarThemeToggle = document.getElementById('sidebar-theme-toggle');
+    const themeBtnIcon = document.getElementById('theme-btn-icon');
+    const themeBtnLabel = document.getElementById('theme-btn-label');
+    const themeModePill = document.getElementById('theme-mode-pill');
+
+    // Media query listener for default browser theme
+    const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function updateThemeUI(theme, isAuto = false) {
+      if (theme === 'dark') {
+        htmlElement.setAttribute('data-theme', 'dark');
+        themeBtnIcon.textContent = '🌙';
+        themeBtnLabel.textContent = 'NIGHT';
+        themeModePill.textContent = isAuto ? 'AUTO: DARK' : 'NIGHT MODE';
+      } else {
+        htmlElement.setAttribute('data-theme', 'light');
+        themeBtnIcon.textContent = '☀️';
+        themeBtnLabel.textContent = 'DAY';
+        themeModePill.textContent = isAuto ? 'AUTO: LIGHT' : 'DAY MODE';
+      }
+    }
+
+    // Initialize theme based on user stored preference OR default browser media query
+    const storedTheme = localStorage.getItem('portfolio-theme');
+    if (storedTheme) {
+      updateThemeUI(storedTheme, false);
+    } else {
+      // Respect default browser theme using CSS Media Query
+      const defaultDark = darkQuery.matches;
+      updateThemeUI(defaultDark ? 'dark' : 'light', true);
+    }
+
+    // React to system OS/browser theme changes live if no explicit override
+    darkQuery.addEventListener('change', (e) => {
+      if (!localStorage.getItem('portfolio-theme')) {
+        updateThemeUI(e.matches ? 'dark' : 'light', true);
+      }
+    });
+
+    // Sidebar Night Mode Toggle Click Event
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme') || (darkQuery.matches ? 'dark' : 'light');
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('portfolio-theme', nextTheme);
+        updateThemeUI(nextTheme, false);
+      });
+    }
+
+
+    // ========================================================================
+    // 2. MOBILE NAVIGATION DRAWER TOGGLE & ACCESSIBILITY
+    // ========================================================================
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const leftNavbar = document.getElementById('left-navbar');
+    const mobileBackdrop = document.getElementById('mobile-nav-backdrop');
+
+    function openMobileNav() {
+      leftNavbar.classList.add('open');
+      mobileBackdrop.classList.add('active');
+      mobileNavToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMobileNav() {
+      leftNavbar.classList.remove('open');
+      mobileBackdrop.classList.remove('active');
+      mobileNavToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    if (mobileNavToggle) {
+      mobileNavToggle.addEventListener('click', () => {
+        const isOpen = leftNavbar.classList.contains('open');
+        if (isOpen) {
+          closeMobileNav();
+        } else {
+          openMobileNav();
+        }
+      });
+    }
+
+    if (mobileBackdrop) {
+      mobileBackdrop.addEventListener('click', closeMobileNav);
+    }
+
+    // Close mobile nav on escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && leftNavbar.classList.contains('open')) {
+        closeMobileNav();
+      }
+    });
+
+
+    // ========================================================================
+    // 3. ACTIVE NAVIGATION LINK ON SCROLL & SMOOTH CLICK
+    // ========================================================================
+    const navLinks = document.querySelectorAll('.nav-link');
+    const contentSections = document.querySelectorAll('header[id], section[id]');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      const scrollPosition = window.pageYOffset + 180;
+
+      contentSections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+    });
+
+    // Close mobile nav when clicking a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          closeMobileNav();
+        }
+      });
+    });
+
+
+    // ========================================================================
+    // 4. INTERACTIVE PIXEL TERMINAL CHAT SIMULATOR
+    // ========================================================================
+    const chatForm = document.getElementById('terminal-chat-form');
+    const chatInput = document.getElementById('chat-user-input');
+    const chatScreen = document.getElementById('chat-screen');
+    const promptChips = document.querySelectorAll('.prompt-chip');
+
+    const botKnowledge = {
+      stack: "Danish's core stack covers TypeScript, JavaScript (ES6+), Python, Node.js, Express, React, Next.js, Docker, PostgreSQL, MongoDB, Redis, and Linux cloud systems.",
+      hire: "Yes! Syed Danish Furqhan is actively considering new software engineering and full-stack positions. Reach out via email or LinkedIn!",
+      projects: "Key project highlights include 'CloudPulse' (a high-throughput real-time telemetry streaming system) and 'DevSync' (a real-time collaborative code editor).",
+      contact: "You can reach Danish directly via email at syed.danish.furqhan@example.com or through the LinkedIn link in the Contact section!"
+    };
+
+    function appendMessage(sender, text) {
+      const msgElem = document.createElement('div');
+      msgElem.className = `chat-msg ${sender === 'user' ? 'msg-user' : 'msg-bot'}`;
+      msgElem.innerHTML = `&gt; <strong>${sender === 'user' ? 'YOU' : 'SDF-BOT'}:</strong> ${text}`;
+      chatScreen.appendChild(msgElem);
+      chatScreen.scrollTop = chatScreen.scrollHeight;
+    }
+
+    function processChat(query) {
+      const clean = query.trim().toLowerCase();
+      appendMessage('user', query);
+
+      let reply = "Command acknowledged. Danish is a software engineer with deep expertise in full-stack web and distributed architecture. Try asking about his tech stack, projects, or how to contact him!";
+
+      if (clean.includes('stack') || clean.includes('skill') || clean.includes('language') || clean.includes('tech')) {
+        reply = botKnowledge.stack;
+      } else if (clean.includes('hire') || clean.includes('job') || clean.includes('open') || clean.includes('role') || clean.includes('work')) {
+        reply = botKnowledge.hire;
+      } else if (clean.includes('project') || clean.includes('portfolio') || clean.includes('built') || clean.includes('app')) {
+        reply = botKnowledge.projects;
+      } else if (clean.includes('contact') || clean.includes('email') || clean.includes('reach') || clean.includes('touch')) {
+        reply = botKnowledge.contact;
+      }
+
+      setTimeout(() => {
+        appendMessage('bot', reply);
+      }, 400);
+    }
+
+    if (chatForm) {
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = chatInput.value.trim();
+        if (query) {
+          processChat(query);
+          chatInput.value = '';
+        }
+      });
+    }
+
+    promptChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const text = chip.getAttribute('data-prompt');
+        processChat(text);
+      });
+    });
+  </script>
+
+</body>
+</html>
